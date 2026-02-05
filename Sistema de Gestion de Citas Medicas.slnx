@@ -1,0 +1,19 @@
+<Solution>
+  <Folder Name="/01.Capa de Acceso a Datos/">
+    <Project Path="CitasMedicas.DataAccess/CitasMedicas.DataAccess.csproj" />
+    <Project Path="CitasMedicas.Entities/CitasMedicas.Entities.csproj" />
+  </Folder>
+  <Folder Name="/02.Capa de Negocio/">
+    <Project Path="CitasMedicas.Business/CitasMedicas.Business.csproj" />
+  </Folder>
+  <Folder Name="/03.Capa Transversal/">
+    <Project Path="CitasMedicas.DTO/CitasMedicas.DTO.csproj" />
+    <Project Path="CitasMedicas.Utilities/CitasMedicas.Utilities.csproj" />
+  </Folder>
+  <Folder Name="/04.Capa de Servidor/">
+    <Project Path="Sistema de Gestion de Citas Medicas.Api/Sistema de Gestion de Citas Medicas.Api.csproj" />
+  </Folder>
+  <Folder Name="/05.Capa Cliente/">
+    <Project Path="Sistema de Gestion de Citas Medicas.csproj" />
+  </Folder>
+</Solution>

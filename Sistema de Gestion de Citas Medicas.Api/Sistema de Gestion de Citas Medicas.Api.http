@@ -1,0 +1,6 @@
+@Sistema_de_Gestion_de_Citas_Medicas.Api_HostAddress = http://localhost:5107
+
+GET {{Sistema_de_Gestion_de_Citas_Medicas.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
