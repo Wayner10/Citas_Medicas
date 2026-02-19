@@ -7,4 +7,13 @@
     <RootNamespace>Sistema_de_Gestion_de_Citas_Medicas</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="CitasMedicas.DataAccess\**\*.cs" />
+    <Compile Remove="CitasMedicas.Entities\**\*.cs" />
+    <Compile Remove="CitasMedicas.DTO\**\*.cs" />
+    <Compile Remove="CitasMedicas.Business\**\*.cs" />
+    <Compile Remove="CitasMedicas.Repositorio\**\*.cs" />
+    <Compile Remove="CitasMedicas.Utilities\**\*.cs" />
+  </ItemGroup>
+
 </Project>
