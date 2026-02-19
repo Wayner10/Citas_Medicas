@@ -5,6 +5,16 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Sistema_de_Gestion_de_Citas_Medicas</RootNamespace>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="CitasMedicas.DataAccess\**\*.cs" />
+    <Compile Remove="CitasMedicas.DTO\**\*.cs" />
+    <Compile Remove="CitasMedicas.Entities\**\*.cs" />
+    <Compile Remove="CitasMedicas.Utilities\**\*.cs" />
+    <Compile Remove="Sistema de Gestion de Citas Medicas.Api\**\*.cs" />
+  </ItemGroup>
 
 </Project>
