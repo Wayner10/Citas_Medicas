@@ -13,8 +13,11 @@
     <Compile Remove="CitasMedicas.DataAccess\**\*.cs" />
     <Compile Remove="CitasMedicas.DTO\**\*.cs" />
     <Compile Remove="CitasMedicas.Entities\**\*.cs" />
+    <Compile Remove="CitasMedicas.Business\**\*.cs" />
+    <Compile Remove="CitasMedicas.Repositorio\**\*.cs" />
     <Compile Remove="CitasMedicas.Utilities\**\*.cs" />
     <Compile Remove="Sistema de Gestion de Citas Medicas.Api\**\*.cs" />
   </ItemGroup>
+
 
 </Project>
