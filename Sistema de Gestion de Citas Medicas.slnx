@@ -2,6 +2,7 @@
   <Folder Name="/01.Capa de Acceso a Datos/">
     <Project Path="CitasMedicas.DataAccess/CitasMedicas.DataAccess.csproj" />
     <Project Path="CitasMedicas.Entities/CitasMedicas.Entities.csproj" />
+    <Project Path="CitasMedicas.Repositorio/CitasMedicas.Repositorio.csproj" Id="cc18927c-462b-4a18-a293-37dbf7b46386" />
   </Folder>
   <Folder Name="/02.Capa de Negocio/">
     <Project Path="CitasMedicas.Business/CitasMedicas.Business.csproj" />

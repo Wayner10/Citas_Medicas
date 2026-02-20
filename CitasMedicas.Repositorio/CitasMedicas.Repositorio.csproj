@@ -4,14 +4,14 @@
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
-
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Request\" />
+    <Folder Include="Interfaces\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CitasMedicas.DataAccess\CitasMedicas.DataAccess.csproj" />
   </ItemGroup>
 
 </Project>

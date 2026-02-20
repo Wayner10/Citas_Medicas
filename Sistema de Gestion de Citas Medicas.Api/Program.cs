@@ -1,6 +1,14 @@
+using CitasMedicas.DataAccess.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddDbContext<CitasMedicasContext>(opt =>
+{
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("cn"));
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
