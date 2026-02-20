@@ -29,3 +29,42 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+
+/* ====== DARK MODE ====== */
+
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.dark-mode .card {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.dark-mode .navbar {
+    background-color: #0d1b2a !important;
+}
+
+.dark-mode .footer {
+    background-color: #1e1e1e;
+}
+
+.dark-mode .nav-link {
+    color: #ffffff !important;
+}
+
+.dark-mode .nav-link.active {
+        font-weight: bold;
+        color: #0dcaf0 !important;
+}
+
+
+/* ====== DARK MODE TRANSITION ====== */
+body,
+.navbar,
+.card,
+.footer,
+.nav-link {
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}

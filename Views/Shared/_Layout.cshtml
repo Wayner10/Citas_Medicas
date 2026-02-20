@@ -4,49 +4,91 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Sistema_de_Gestion_de_Citas_Medicas</title>
-    <script type="importmap"></script>
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Sistema_de_Gestion_de_Citas_Medicas.styles.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+
 </head>
 <body>
-     
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
         <div class="container-fluid">
-            <a class=" navbar-brand fw-bold" asp-area="" asp-controller="Home" asp-action="Index">
+
+            <a class="navbar-brand fw-bold"
+               asp-controller="Home" asp-action="Index">
                 Sistema de Gestión de Citas Médicas
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarContent" aria-controls="navbarContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                    data-bs-target="#navbarContent">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarContent">
-                <ul class="navbar-nav ms-auto">
+
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Pacientes" asp-action="Index">Pacientes</a>
+                        <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Pacientes" ? "active fw-bold" : "")"
+                           asp-controller="Pacientes" asp-action="Index">
+                            <i class="bi bi-person-lines-fill me-1"></i> Pacientes
+                        </a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Citas" asp-action="Index">Citas</a>
+                        <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Citas" ? "active fw-bold" : "")"
+                           asp-controller="Citas" asp-action="Index">
+                            <i class="bi bi-calendar-check me-1"></i> Citas
+                        </a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Doctores" asp-action="Index">Doctores</a>
+                        <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Doctores" ? "active fw-bold" : "")"
+                           asp-controller="Doctores" asp-action="Index">
+                            <i class="bi bi-person-badge me-1"></i> Doctores
+                        </a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Especialidades" asp-action="Index">Especialidades</a>
+                        <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Especialidades" ? "active fw-bold" : "")"
+                           asp-controller="Especialidades" asp-action="Index">
+                            <i class="bi bi-heart-pulse me-1"></i> Especialidades
+                        </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active fw-bold" : "")"
+                           asp-controller="Home" asp-action="AcercaDe">
+                            <i class="bi bi-info-circle me-1"></i> Acerca de
+                        </a>
+                    </li>
+
+
+                    <!-- BOTÓN MODO OSCURO -->
+                    <li class="nav-item ms-lg-3">
+                        <button id="darkModeBtn" class="btn btn-sm btn-outline-light ms-3">
+                            <i class="bi bi-moon-fill"></i>
+                        </button>
+                    </li>
+
                 </ul>
             </div>
         </div>
     </nav>
 
     <div class="container mt-4">
-        @RenderBody()
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                @RenderBody()
+            </div>
+        </div>
     </div>
 
-    <footer class="bg-light text-center py-3 mt-4 border-top">
+    <footer class="footer bg-light text-center py-3 mt-4 border-top">
         <small>
             © 2026 Sistema de Gestión de Citas Médicas | Desarrollado por el Equipo 5
         </small>
@@ -54,7 +96,29 @@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script>
+        const btn = document.getElementById("darkModeBtn");
+
+        // Cargar preferencia guardada
+        if (localStorage.getItem("darkMode") === "enabled") {
+            document.body.classList.add("dark-mode");
+        }
+
+        btn.addEventListener("click", function () {
+            document.body.classList.toggle("dark-mode");
+
+            if (document.body.classList.contains("dark-mode")) {
+                localStorage.setItem("darkMode", "enabled");
+                btn.textContent = "☀️";
+            } else {
+                localStorage.setItem("darkMode", "disabled");
+                btn.textContent = "🌙";
+            }
+        });
+    </script>
+
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>
