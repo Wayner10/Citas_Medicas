@@ -1,0 +1,88 @@
+﻿@model Sistema_de_Gestion_de_Citas_Medicas.ViewModels.EspecialidadCreateVM
+
+@{
+    ViewData["Title"] = "Editar Especialidad";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/especialidades.css" asp-append-version="true" />
+}
+
+<div class="container-fluid py-4 especialidades-page">
+
+    <div class="d-flex align-items-start justify-content-between flex-wrap gap-3 mb-3">
+        <div>
+            <h1 class="page-title mb-1">Editar Especialidad</h1>
+            <p class="page-subtitle mb-0">Modifica la información de la especialidad</p>
+        </div>
+
+        <a asp-action="Index" class="btn btn-outline-secondary btn-pill">
+            <i class="bi bi-arrow-left me-2"></i> Volver
+        </a>
+    </div>
+
+    <div class="panel-card">
+        <div class="p-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <form asp-action="Edit" method="post" autocomplete="off" class="form-modern">
+                <input type="hidden" asp-for="Id" />
+
+                <div class="row g-3">
+
+                    <div class="col-12 col-md-6">
+                        <label asp-for="Nombre" class="form-label">
+                            Nombre <span class="req">*</span>
+                        </label>
+                        <div class="input-icon">
+                            <i class="bi bi-tag"></i>
+                            <input asp-for="Nombre" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-12">
+                        <label asp-for="Descripcion" class="form-label">Descripción</label>
+                        <div class="input-icon">
+                            <i class="bi bi-card-text"></i>
+                            <input asp-for="Descripcion" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Descripcion" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <label class="form-label d-block">Estado</label>
+
+                        <div class="ios-toggle">
+                            <input asp-for="Activa" class="ios-toggle__input" />
+                            <label asp-for="Activa" class="ios-toggle__track">
+                                <span class="ios-toggle__thumb"></span>
+                            </label>
+                            <span class="ios-toggle__text">Especialidad activa</span>
+                        </div>
+                        <span asp-validation-for="Activa" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <hr class="my-4" />
+
+                <div class="d-flex flex-wrap gap-2 justify-content-end">
+                    <a asp-action="Index" class="btn btn-outline-secondary btn-pill">
+                        <i class="bi bi-x-circle me-2"></i> Cancelar
+                    </a>
+
+                    <button type="submit" class="btn btn-success btn-pill">
+                        <i class="bi bi-save me-2"></i> Guardar cambios
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

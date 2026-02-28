@@ -1,0 +1,118 @@
+﻿@model Sistema_de_Gestion_de_Citas_Medicas.Models.DoctorCreateVM
+
+@{
+    ViewData["Title"] = "Detalle del Doctor";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/doctores.css" asp-append-version="true" />
+}
+
+<div class="container-fluid py-4 doctores-page">
+
+    <!-- Header -->
+    <div class="d-flex align-items-start justify-content-between flex-wrap gap-3 mb-3">
+        <div>
+            <h1 class="page-title mb-1">Detalle del Doctor</h1>
+            <p class="page-subtitle mb-0">Información completa del doctor</p>
+        </div>
+
+        <a asp-action="Index" class="btn btn-outline-secondary btn-pill">
+            <i class="bi bi-arrow-left me-2"></i> Volver
+        </a>
+    </div>
+
+    <div class="panel-card">
+        <div class="panel-toolbar">
+            <div class="d-flex align-items-center gap-2">
+                <span class="stat-icon soft-primary">
+                    <i class="bi bi-person-badge"></i>
+                </span>
+                <div>
+                    <div class="fw-bold">
+                        Dr(a). @Model.Nombre @Model.Apellido
+                    </div>
+                    <small class="text-muted">Doctor registrado</small>
+                </div>
+            </div>
+
+            <div>
+                @if (Model.Activo)
+                {
+                    <span class="badge-pill badge-success">Activo</span>
+                }
+                else
+                {
+                    <span class="badge-pill badge-warning">Inactivo</span>
+                }
+            </div>
+        </div>
+
+        <div class="p-4">
+            <div class="row g-4">
+
+                <div class="col-md-6">
+                    <div class="detail-item">
+                        <div class="detail-label">Nombre</div>
+                        <div class="detail-value">@Model.Nombre</div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="detail-item">
+                        <div class="detail-label">Apellido</div>
+                        <div class="detail-value">@Model.Apellido</div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="detail-item">
+                        <div class="detail-label">Código Med</div>
+                        <div class="detail-value">@Model.CodigoMed</div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="detail-item">
+                        <div class="detail-label">Teléfono</div>
+                        <div class="detail-value">@Model.Telefono</div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="detail-item">
+                        <div class="detail-label">Correo</div>
+                        <div class="detail-value">@Model.Correo</div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="detail-item">
+                        <div class="detail-label">Especialidad</div>
+                        <div class="detail-value">@Model.Especialidad</div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="detail-item">
+                        <div class="detail-label">Consultorio</div>
+                        <div class="detail-value">@Model.Consultorio</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <hr class="my-4" />
+
+            <div class="d-flex justify-content-end gap-2">
+                <a asp-action="Edit" asp-route-id="@Model.DoctorId" class="btn btn-warning btn-pill">
+                    <i class="bi bi-pencil me-2"></i> Editar
+                </a>
+
+                <a asp-action="Index" class="btn btn-outline-secondary btn-pill">
+                    Cerrar
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,178 @@
+﻿.doctores-page {
+    animation: fadeDoctor .25s ease-in-out;
+}
+
+@keyframes fadeDoctor {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.doctores-page .doctor-card {
+    border: none;
+    border-radius: 22px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.07);
+    overflow: hidden;
+    transition: all .2s ease;
+}
+
+    .doctores-page .doctor-card:hover {
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.09);
+    }
+
+.doctores-page .doctor-table th {
+    font-size: .78rem;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+    opacity: .6;
+    border-bottom: 1px solid rgba(0,0,0,.06);
+}
+
+.doctores-page .doctor-table td {
+    vertical-align: middle;
+    padding: 16px 12px;
+    border-top: 1px solid rgba(0,0,0,.05);
+}
+
+.doctores-page .doctor-table tbody tr {
+    transition: all .15s ease;
+}
+
+    .doctores-page .doctor-table tbody tr:hover {
+        background: rgba(13,110,253,.05);
+    }
+
+.doctores-page .doctor-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0d6efd20, #0dcaf020);
+    font-size: 1.2rem;
+}
+
+.doctores-page .doctor-avatar-lg {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0d6efd20, #0dcaf020);
+    font-size: 1.35rem;
+}
+
+.doctores-page .doctor-badge {
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: .75rem;
+}
+
+.doctores-page .doctor-badge--active {
+    background: rgba(25,135,84,.12);
+    color: #198754;
+}
+
+.doctores-page .doctor-badge--inactive {
+    background: rgba(108,117,125,.18);
+    color: #6c757d;
+}
+
+.doctores-page .doctor-form .form-control,
+.doctores-page .doctor-form .form-select {
+    border-radius: 16px;
+    padding: 12px;
+    border: 1px solid rgba(0,0,0,.08);
+    transition: all .2s ease;
+}
+
+    .doctores-page .doctor-form .form-control:focus,
+    .doctores-page .doctor-form .form-select:focus {
+        box-shadow: 0 0 0 3px rgba(13,110,253,.15);
+        border-color: #0d6efd;
+    }
+
+.doctores-page .doctor-switch {
+    width: 55px;
+    height: 32px;
+    position: relative;
+}
+
+    .doctores-page .doctor-switch input {
+        display: none;
+    }
+
+.doctores-page .doctor-slider {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,.2);
+    border-radius: 999px;
+    transition: .3s;
+}
+
+    .doctores-page .doctor-slider::before {
+        content: "";
+        position: absolute;
+        height: 26px;
+        width: 26px;
+        left: 3px;
+        top: 3px;
+        background: white;
+        border-radius: 999px;
+        transition: .3s;
+        box-shadow: 0 4px 14px rgba(0,0,0,.2);
+    }
+
+.doctores-page .doctor-switch input:checked + .doctor-slider {
+    background: linear-gradient(135deg,#0d6efd,#0dcaf0);
+}
+
+    .doctores-page .doctor-switch input:checked + .doctor-slider::before {
+        transform: translateX(23px);
+    }
+
+.doctores-page .details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+@media (max-width: 768px) {
+    .doctores-page .details-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.doctores-page .doctor-details-box {
+    background: rgba(0,0,0,.03);
+    padding: 14px;
+    border-radius: 16px;
+}
+
+.doctores-page .doctor-details-label {
+    font-size: .75rem;
+    opacity: .6;
+    font-weight: 700;
+}
+
+.doctores-page .doctor-details-value {
+    font-weight: 800;
+}
+
+.doctores-page .btn-soft {
+    border-radius: 14px;
+    padding: 8px 14px;
+}
+
+.doctores-page .page-head {
+    margin-bottom: 20px;
+}

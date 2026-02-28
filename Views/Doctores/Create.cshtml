@@ -1,20 +1,20 @@
-﻿@model Sistema_de_Gestion_de_Citas_Medicas.ViewModels.PacienteCreateVM
+﻿@model Sistema_de_Gestion_de_Citas_Medicas.Models.DoctorCreateVM
 
 @{
-    ViewData["Title"] = "Nuevo Paciente";
+    ViewData["Title"] = "Nuevo Doctor";
 }
 
 @section Styles {
-    <link rel="stylesheet" href="~/css/pacientes.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/doctores.css" asp-append-version="true" />
 }
 
-<div class="container-fluid py-4 pacientes-page">
+<div class="container-fluid py-4 doctores-page">
 
     <!-- Header igual al Index -->
     <div class="d-flex align-items-start justify-content-between flex-wrap gap-3 mb-3">
         <div>
-            <h1 class="page-title mb-1">Nuevo Paciente</h1>
-            <p class="page-subtitle mb-0">Completa los datos para registrar un paciente</p>
+            <h1 class="page-title mb-1">Nuevo Doctor</h1>
+            <p class="page-subtitle mb-0">Completa los datos para registrar un doctor</p>
         </div>
 
         <a asp-action="Index" class="btn btn-outline-secondary btn-pill">
@@ -30,7 +30,7 @@
                     <i class="bi bi-person-plus"></i>
                 </span>
                 <div>
-                    <div class="fw-bold">Información del paciente</div>
+                    <div class="fw-bold">Información del doctor</div>
                     <small class="text-muted">Campos obligatorios marcados con *</small>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                         </label>
                         <div class="input-icon">
                             <i class="bi bi-person"></i>
-                            <input asp-for="Nombre" class="form-control" placeholder="Ej: Juan" />
+                            <input asp-for="Nombre" class="form-control" placeholder="Ej: Karla" />
                         </div>
                         <span asp-validation-for="Nombre" class="text-danger"></span>
                     </div>
@@ -60,20 +60,20 @@
                         </label>
                         <div class="input-icon">
                             <i class="bi bi-person-badge"></i>
-                            <input asp-for="Apellido" class="form-control" placeholder="Ej: Pérez" />
+                            <input asp-for="Apellido" class="form-control" placeholder="Ej: Méndez" />
                         </div>
                         <span asp-validation-for="Apellido" class="text-danger"></span>
                     </div>
 
                     <div class="col-12 col-md-6">
-                        <label asp-for="Cedula" class="form-label">
-                            Cédula <span class="req">*</span>
+                        <label asp-for="CodigoMed" class="form-label">
+                            Código MED <span class="req">*</span>
                         </label>
                         <div class="input-icon">
-                            <i class="bi bi-card-text"></i>
-                            <input asp-for="Cedula" class="form-control" placeholder="Ej: 1-2345-6789" />
+                            <i class="bi bi-patch-check"></i>
+                            <input asp-for="CodigoMed" class="form-control" placeholder="Ej: MED-10293" />
                         </div>
-                        <span asp-validation-for="Cedula" class="text-danger"></span>
+                        <span asp-validation-for="CodigoMed" class="text-danger"></span>
                     </div>
 
                     <div class="col-12 col-md-6">
@@ -82,20 +82,47 @@
                         </label>
                         <div class="input-icon">
                             <i class="bi bi-telephone"></i>
-                            <input asp-for="Telefono" class="form-control" placeholder="Ej: 8888-8888" />
+                            <input asp-for="Telefono" class="form-control" placeholder="Ej: 8888-1111" />
                         </div>
                         <span asp-validation-for="Telefono" class="text-danger"></span>
                     </div>
 
                     <div class="col-12 col-md-6">
-                        <label asp-for="FechaNacimiento" class="form-label">
-                            Fecha de nacimiento <span class="req">*</span>
+                        <label asp-for="Correo" class="form-label">
+                            Correo
                         </label>
                         <div class="input-icon">
-                            <i class="bi bi-calendar-event"></i>
-                            <input asp-for="FechaNacimiento" type="date" class="form-control" />
+                            <i class="bi bi-envelope"></i>
+                            <input asp-for="Correo" class="form-control" placeholder="correo@clinica.com" />
                         </div>
-                        <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+                        <span asp-validation-for="Correo" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <label asp-for="Especialidad" class="form-label">
+                            Especialidad <span class="req">*</span>
+                        </label>
+                        <div class="input-icon">
+                            <i class="bi bi-heart-pulse"></i>
+                            <select asp-for="Especialidad" class="form-select form-control">
+                                <option>Medicina General</option>
+                                <option>Cardiología</option>
+                                <option>Dermatología</option>
+                                <option>Pediatría</option>
+                            </select>
+                        </div>
+                        <span asp-validation-for="Especialidad" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <label asp-for="Consultorio" class="form-label">
+                            Consultorio
+                        </label>
+                        <div class="input-icon">
+                            <i class="bi bi-door-open"></i>
+                            <input asp-for="Consultorio" class="form-control" placeholder="Ej: A-3" />
+                        </div>
+                        <span asp-validation-for="Consultorio" class="text-danger"></span>
                     </div>
 
                     <div class="col-12 col-md-6">
@@ -106,8 +133,9 @@
                             <label asp-for="Activo" class="ios-toggle__track">
                                 <span class="ios-toggle__thumb"></span>
                             </label>
-                            <span class="ios-toggle__text">Paciente activo</span>
+                            <span class="ios-toggle__text">Doctor activo</span>
                         </div>
+
                         <span asp-validation-for="Activo" class="text-danger"></span>
                     </div>
 

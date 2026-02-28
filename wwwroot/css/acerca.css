@@ -1,0 +1,205 @@
+﻿.about-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    box-shadow: 0 18px 40px rgba(2,8,23,.08);
+    padding: 28px;
+}
+
+.about-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.about-title {
+    font-size: 34px;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.about-version {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(37,99,235,.10);
+    color: var(--primary);
+    font-weight: 800;
+    font-size: 13px;
+    border: 1px solid rgba(37,99,235,.18);
+    white-space: nowrap;
+}
+
+.about-subtitle {
+    color: var(--muted);
+    margin: 6px 0 0;
+    max-width: 70ch;
+    line-height: 1.55;
+}
+
+.about-grid {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 16px;
+}
+
+@media (max-width: 992px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.about-section {
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 16px;
+    background: rgba(255,255,255,.65);
+    backdrop-filter: blur(6px);
+}
+
+.about-section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 900;
+    color: var(--text);
+    margin: 0 0 10px;
+}
+
+    .about-section-title i {
+        width: 34px;
+        height: 34px;
+        display: grid;
+        place-items: center;
+        border-radius: 12px;
+        background: rgba(37,99,235,.10);
+        color: var(--primary);
+    }
+
+.tech-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tech-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: #fff;
+    box-shadow: 0 10px 22px rgba(2,8,23,.05);
+    font-weight: 800;
+    font-size: 13px;
+    color: #0f172a;
+}
+
+    .tech-chip i {
+        color: var(--primary);
+    }
+
+.team-list {
+    display: grid;
+    gap: 10px;
+}
+
+.team-item {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 12px 12px;
+    background: #fff;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+    .team-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 30px rgba(2,8,23,.08);
+        background: #fbfdff;
+    }
+
+.team-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    background: rgba(37,99,235,.10);
+    color: var(--primary);
+    font-size: 18px;
+    flex: 0 0 auto;
+}
+
+.team-role {
+    margin: 0;
+    font-weight: 900;
+    color: var(--text);
+    line-height: 1.15;
+}
+
+.team-desc {
+    margin: 4px 0 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.35;
+}
+
+.team-name {
+    margin-top: 6px;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    font-weight: 900;
+    color: #111827;
+    font-size: 13px;
+}
+
+    .team-name .badge {
+        font-size: 12px;
+        border-radius: 999px;
+    }
+
+.about-footer {
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.socials {
+    display: flex;
+    gap: 10px;
+}
+
+.social-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--primary);
+    box-shadow: 0 10px 22px rgba(2,8,23,.05);
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    text-decoration: none;
+}
+
+    .social-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 34px rgba(2,8,23,.10);
+        background: rgba(37,99,235,.06);
+    }

@@ -4,68 +4,85 @@
 
 <div class="page-shell">
 
-
     <div class="mb-4">
         <div class="page-title">Panel principal</div>
-        <p class="page-subtitle mb-0">Gestiona pacientes, doctores, especialidades y citas desde un solo lugar.</p>
+        <p class="page-subtitle mb-0">
+            Gestiona pacientes, doctores, especialidades y citas desde un solo lugar.
+        </p>
     </div>
 
-
+    <!-- ===== STATS ===== -->
     <div class="row g-3 mb-4">
+
+        <!-- Pacientes -->
         <div class="col-12 col-md-6 col-lg-3">
             <div class="card stat-card">
-                <div class="d-flex justify-content-between align-items-start">
+                <div class="d-flex justify-content-between align-items-center">
                     <div>
                         <div class="stat-label">Pacientes</div>
-                        <div class="stat-value">0</div>
+                        <div class="stat-value text-blue">0</div>
                     </div>
-                    <div class="stat-icon"><i class="bi bi-people"></i></div>
+                    <div class="stat-icon soft-blue">
+                        <i class="bi bi-people"></i>
+                    </div>
                 </div>
             </div>
         </div>
 
+        <!-- Doctores -->
         <div class="col-12 col-md-6 col-lg-3">
             <div class="card stat-card">
-                <div class="d-flex justify-content-between align-items-start">
+                <div class="d-flex justify-content-between align-items-center">
                     <div>
                         <div class="stat-label">Doctores</div>
-                        <div class="stat-value">0</div>
+                        <div class="stat-value text-green">0</div>
                     </div>
-                    <div class="stat-icon"><i class="bi bi-person-badge"></i></div>
+                    <div class="stat-icon soft-green">
+                        <i class="bi bi-person-badge"></i>
+                    </div>
                 </div>
             </div>
         </div>
 
+        <!-- Citas -->
         <div class="col-12 col-md-6 col-lg-3">
             <div class="card stat-card">
-                <div class="d-flex justify-content-between align-items-start">
+                <div class="d-flex justify-content-between align-items-center">
                     <div>
                         <div class="stat-label">Citas</div>
-                        <div class="stat-value">0</div>
+                        <div class="stat-value text-orange">0</div>
                     </div>
-                    <div class="stat-icon"><i class="bi bi-calendar-check"></i></div>
+                    <div class="stat-icon soft-orange">
+                        <i class="bi bi-calendar-check"></i>
+                    </div>
                 </div>
             </div>
         </div>
 
+        <!-- Especialidades -->
         <div class="col-12 col-md-6 col-lg-3">
             <div class="card stat-card">
-                <div class="d-flex justify-content-between align-items-start">
+                <div class="d-flex justify-content-between align-items-center">
                     <div>
                         <div class="stat-label">Especialidades</div>
-                        <div class="stat-value">0</div>
+                        <div class="stat-value text-purple">0</div>
                     </div>
-                    <div class="stat-icon"><i class="bi bi-heart-pulse"></i></div>
+                    <div class="stat-icon soft-purple">
+                        <i class="bi bi-heart-pulse"></i>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
 
-    <!-- Quick actions -->
+    <!-- ===== QUICK ACTIONS ===== -->
     <div class="quick-actions mb-4">
         <div class="d-flex justify-content-between align-items-center mb-2">
             <h5 class="fw-bold mb-0">Acciones rápidas</h5>
-            <span class="text-secondary small">Atajos para registrar más rápido</span>
+            <span class="text-secondary small">
+                Atajos para registrar más rápido
+            </span>
         </div>
 
         <div class="d-flex flex-wrap gap-2">
@@ -87,13 +104,12 @@
         </div>
     </div>
 
-    <!-- Próximas citas -->
+    <!-- ===== PRÓXIMAS CITAS ===== -->
     <div class="card">
         <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center mb-2">
+            <div class="d-flex justify-content-between align-items-center mb-3">
                 <h5 class="fw-bold mb-0">Próximas citas</h5>
 
-            
                 <a class="small text-decoration-none" asp-controller="Citas" asp-action="Index">
                     Ver todas <i class="bi bi-arrow-right"></i>
                 </a>
@@ -114,7 +130,9 @@
                             <td class="text-secondary">—</td>
                             <td class="text-secondary">Aún no hay citas registradas.</td>
                             <td class="text-secondary">—</td>
-                            <td><span class="badge-soft pending">Pendiente</span></td>
+                            <td>
+                                <span class="badge-soft pending">Pendiente</span>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

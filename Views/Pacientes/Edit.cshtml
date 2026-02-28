@@ -1,7 +1,7 @@
 ﻿@model Sistema_de_Gestion_de_Citas_Medicas.ViewModels.PacienteCreateVM
 
 @{
-    ViewData["Title"] = "Nuevo Paciente";
+    ViewData["Title"] = "Editar Paciente";
 }
 
 @section Styles {
@@ -10,11 +10,13 @@
 
 <div class="container-fluid py-4 pacientes-page">
 
-    <!-- Header igual al Index -->
+    <!-- Header -->
     <div class="d-flex align-items-start justify-content-between flex-wrap gap-3 mb-3">
         <div>
-            <h1 class="page-title mb-1">Nuevo Paciente</h1>
-            <p class="page-subtitle mb-0">Completa los datos para registrar un paciente</p>
+            <h1 class="page-title mb-1">Editar Paciente</h1>
+            <p class="page-subtitle mb-0">
+                Modifica la información del paciente
+            </p>
         </div>
 
         <a asp-action="Index" class="btn btn-outline-secondary btn-pill">
@@ -22,75 +24,75 @@
         </a>
     </div>
 
-    <!-- Panel -->
     <div class="panel-card">
         <div class="panel-toolbar">
             <div class="d-flex align-items-center gap-2">
-                <span class="stat-icon soft-primary">
-                    <i class="bi bi-person-plus"></i>
+                <span class="stat-icon soft-warning">
+                    <i class="bi bi-pencil"></i>
                 </span>
                 <div>
-                    <div class="fw-bold">Información del paciente</div>
-                    <small class="text-muted">Campos obligatorios marcados con *</small>
+                    <div class="fw-bold">
+                        @Model.Nombre @Model.Apellido
+                    </div>
+                    <small class="text-muted">Edición de datos</small>
                 </div>
             </div>
+
+            @if (Model.Activo)
+            {
+                <span class="badge-pill badge-success">Activo</span>
+            }
+            else
+            {
+                <span class="badge-pill badge-warning">Inactivo</span>
+            }
         </div>
 
         <div class="p-4">
-            <!-- Errores generales -->
+
             <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
-            <form asp-action="Create" method="post" autocomplete="off" class="form-modern">
+            <form asp-action="Edit" method="post" autocomplete="off" class="form-modern">
                 <div class="row g-3">
 
-                    <div class="col-12 col-md-6">
-                        <label asp-for="Nombre" class="form-label">
-                            Nombre <span class="req">*</span>
-                        </label>
+                    <div class="col-md-6">
+                        <label asp-for="Nombre" class="form-label"></label>
                         <div class="input-icon">
                             <i class="bi bi-person"></i>
-                            <input asp-for="Nombre" class="form-control" placeholder="Ej: Juan" />
+                            <input asp-for="Nombre" class="form-control" />
                         </div>
                         <span asp-validation-for="Nombre" class="text-danger"></span>
                     </div>
 
-                    <div class="col-12 col-md-6">
-                        <label asp-for="Apellido" class="form-label">
-                            Apellido <span class="req">*</span>
-                        </label>
+                    <div class="col-md-6">
+                        <label asp-for="Apellido" class="form-label"></label>
                         <div class="input-icon">
                             <i class="bi bi-person-badge"></i>
-                            <input asp-for="Apellido" class="form-control" placeholder="Ej: Pérez" />
+                            <input asp-for="Apellido" class="form-control" />
                         </div>
                         <span asp-validation-for="Apellido" class="text-danger"></span>
                     </div>
 
-                    <div class="col-12 col-md-6">
-                        <label asp-for="Cedula" class="form-label">
-                            Cédula <span class="req">*</span>
-                        </label>
+                    <div class="col-md-6">
+                        <label asp-for="Cedula" class="form-label"></label>
                         <div class="input-icon">
                             <i class="bi bi-card-text"></i>
-                            <input asp-for="Cedula" class="form-control" placeholder="Ej: 1-2345-6789" />
+                            <input asp-for="Cedula" class="form-control" />
                         </div>
                         <span asp-validation-for="Cedula" class="text-danger"></span>
                     </div>
 
-                    <div class="col-12 col-md-6">
-                        <label asp-for="Telefono" class="form-label">
-                            Teléfono <span class="req">*</span>
-                        </label>
+                    <div class="col-md-6">
+                        <label asp-for="Telefono" class="form-label"></label>
                         <div class="input-icon">
                             <i class="bi bi-telephone"></i>
-                            <input asp-for="Telefono" class="form-control" placeholder="Ej: 8888-8888" />
+                            <input asp-for="Telefono" class="form-control" />
                         </div>
                         <span asp-validation-for="Telefono" class="text-danger"></span>
                     </div>
 
-                    <div class="col-12 col-md-6">
-                        <label asp-for="FechaNacimiento" class="form-label">
-                            Fecha de nacimiento <span class="req">*</span>
-                        </label>
+                    <div class="col-md-6">
+                        <label asp-for="FechaNacimiento" class="form-label"></label>
                         <div class="input-icon">
                             <i class="bi bi-calendar-event"></i>
                             <input asp-for="FechaNacimiento" type="date" class="form-control" />
@@ -98,7 +100,8 @@
                         <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
                     </div>
 
-                    <div class="col-12 col-md-6">
+                    <!-- iOS Switch -->
+                    <div class="col-md-6">
                         <label class="form-label d-block">Estado</label>
 
                         <div class="ios-toggle">
@@ -106,25 +109,27 @@
                             <label asp-for="Activo" class="ios-toggle__track">
                                 <span class="ios-toggle__thumb"></span>
                             </label>
-                            <span class="ios-toggle__text">Paciente activo</span>
+                            <span class="ios-toggle__text">
+                                @(Model.Activo ? "Activo" : "Inactivo")
+                            </span>
                         </div>
-                        <span asp-validation-for="Activo" class="text-danger"></span>
                     </div>
 
                 </div>
 
                 <hr class="my-4" />
 
-                <div class="d-flex flex-wrap gap-2 justify-content-end">
+                <div class="d-flex justify-content-end gap-2">
                     <a asp-action="Index" class="btn btn-outline-secondary btn-pill">
-                        <i class="bi bi-x-circle me-2"></i> Cancelar
+                        Cancelar
                     </a>
 
-                    <button type="submit" class="btn btn-success btn-pill">
-                        <i class="bi bi-save me-2"></i> Guardar
+                    <button type="submit" class="btn btn-warning btn-pill">
+                        <i class="bi bi-check2-circle me-2"></i> Actualizar
                     </button>
                 </div>
             </form>
+
         </div>
     </div>
 </div>

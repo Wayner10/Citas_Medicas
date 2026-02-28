@@ -1,0 +1,96 @@
+﻿@model Sistema_de_Gestion_de_Citas_Medicas.ViewModels.CitaCreateVM
+
+@{
+    ViewData["Title"] = "Editar Cita";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/citas.css" asp-append-version="true" />
+}
+
+<div class="container-fluid py-4 citas-page">
+
+    <!-- Header -->
+    <div class="d-flex align-items-start justify-content-between flex-wrap gap-3 mb-3">
+        <div>
+            <h1 class="page-title mb-1">Editar Cita</h1>
+            <p class="page-subtitle mb-0">Modifica la información de la cita</p>
+        </div>
+
+        <a asp-action="Index" class="btn btn-outline-secondary btn-pill">
+            <i class="bi bi-arrow-left me-2"></i> Volver
+        </a>
+    </div>
+
+    <div class="panel-card">
+        <div class="p-4">
+
+            <form asp-action="Edit" method="post" class="form-modern">
+                <input type="hidden" asp-for="Id" />
+
+                <div class="row g-3">
+
+                    <div class="col-md-6">
+                        <label asp-for="PacienteId" class="form-label"></label>
+                        <select asp-for="PacienteId" asp-items="Model.Pacientes" class="form-select"></select>
+                        <span asp-validation-for="PacienteId" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="DoctorId" class="form-label"></label>
+                        <select asp-for="DoctorId" asp-items="Model.Doctores" class="form-select"></select>
+                        <span asp-validation-for="DoctorId" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="EspecialidadId" class="form-label"></label>
+                        <select asp-for="EspecialidadId" asp-items="Model.Especialidades" class="form-select"></select>
+                        <span asp-validation-for="EspecialidadId" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label asp-for="Fecha" class="form-label"></label>
+                        <input asp-for="Fecha" type="date" class="form-control" />
+                        <span asp-validation-for="Fecha" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label asp-for="Hora" class="form-label"></label>
+                        <input asp-for="Hora" type="time" class="form-control" />
+                        <span asp-validation-for="Hora" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-12">
+                        <label asp-for="Motivo" class="form-label"></label>
+                        <input asp-for="Motivo" class="form-control" />
+                        <span asp-validation-for="Motivo" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label d-block">Estado</label>
+                        <input asp-for="Activa" />
+                    </div>
+
+                </div>
+
+                <hr class="my-4" />
+
+                <div class="d-flex justify-content-end gap-2">
+                    <a asp-action="Index" class="btn btn-outline-secondary btn-pill">
+                        Cancelar
+                    </a>
+                    <button type="submit" class="btn btn-success btn-pill">
+                        Guardar Cambios
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

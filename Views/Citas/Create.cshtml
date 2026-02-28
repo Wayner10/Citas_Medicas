@@ -1,0 +1,157 @@
+﻿@model Sistema_de_Gestion_de_Citas_Medicas.ViewModels.CitaCreateVM
+
+@{
+    ViewData["Title"] = "Nueva Cita";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/citas.css" asp-append-version="true" />
+}
+
+<div class="container-fluid py-4 citas-page">
+
+    <!-- Header igual al Index -->
+    <div class="d-flex align-items-start justify-content-between flex-wrap gap-3 mb-3">
+        <div>
+            <h1 class="page-title mb-1">Nueva Cita</h1>
+            <p class="page-subtitle mb-0">Completa los datos para agendar una cita médica</p>
+        </div>
+
+        <a asp-action="Index" class="btn btn-outline-secondary btn-pill">
+            <i class="bi bi-arrow-left me-2"></i> Volver
+        </a>
+    </div>
+
+    <!-- Panel -->
+    <div class="panel-card">
+        <div class="panel-toolbar">
+            <div class="d-flex align-items-center gap-2">
+                <span class="stat-icon soft-primary">
+                    <i class="bi bi-calendar-plus"></i>
+                </span>
+                <div>
+                    <div class="fw-bold">Información de la cita</div>
+                    <small class="text-muted">Campos obligatorios marcados con *</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-4">
+            <!-- Errores generales -->
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <form asp-action="Create" method="post" autocomplete="off" class="form-modern">
+                <div class="row g-3">
+
+                    <!-- Paciente -->
+                    <div class="col-12 col-md-6">
+                        <label asp-for="PacienteId" class="form-label">
+                            Paciente <span class="req">*</span>
+                        </label>
+                        <div class="input-icon">
+                            <i class="bi bi-person"></i>
+                            <select asp-for="PacienteId" asp-items="Model.Pacientes" class="form-select">
+                            </select>
+                        </div>
+                        <span asp-validation-for="PacienteId" class="text-danger"></span>
+                    </div>
+
+                    <!-- Doctor -->
+                    <div class="col-12 col-md-6">
+                        <label asp-for="DoctorId" class="form-label">
+                            Doctor <span class="req">*</span>
+                        </label>
+                        <div class="input-icon">
+                            <i class="bi bi-person-badge"></i>
+                            <select asp-for="DoctorId" asp-items="Model.Doctores" class="form-select">
+                            </select>
+                        </div>
+                        <span asp-validation-for="DoctorId" class="text-danger"></span>
+                    </div>
+
+                    <!-- Especialidad -->
+                    <div class="col-12 col-md-6">
+                        <label asp-for="EspecialidadId" class="form-label">
+                            Especialidad <span class="req">*</span>
+                        </label>
+                        <div class="input-icon">
+                            <i class="bi bi-heart-pulse"></i>
+                            <select asp-for="EspecialidadId" asp-items="Model.Especialidades" class="form-select">
+                            </select>
+                        </div>
+                        <span asp-validation-for="EspecialidadId" class="text-danger"></span>
+                    </div>
+
+                    <!-- Fecha -->
+                    <div class="col-12 col-md-3">
+                        <label asp-for="Fecha" class="form-label">
+                            Fecha <span class="req">*</span>
+                        </label>
+                        <div class="input-icon">
+                            <i class="bi bi-calendar-event"></i>
+                            <input asp-for="Fecha" type="date" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Fecha" class="text-danger"></span>
+                    </div>
+
+                    <!-- Hora -->
+                    <div class="col-12 col-md-3">
+                        <label asp-for="Hora" class="form-label">
+                            Hora <span class="req">*</span>
+                        </label>
+                        <div class="input-icon">
+                            <i class="bi bi-clock"></i>
+                            <input asp-for="Hora" type="time" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Hora" class="text-danger"></span>
+                    </div>
+
+                    <!-- Motivo -->
+                    <div class="col-12">
+                        <label asp-for="Motivo" class="form-label">
+                            Motivo <span class="req">*</span>
+                        </label>
+                        <div class="input-icon">
+                            <i class="bi bi-chat-left-text"></i>
+                            <input asp-for="Motivo" class="form-control" placeholder="Ej: Control general / Dolor / Seguimiento..." />
+                        </div>
+                        <span asp-validation-for="Motivo" class="text-danger"></span>
+                    </div>
+
+                    <!-- Estado -->
+                    <div class="col-12 col-md-6">
+                        <label class="form-label d-block">Estado</label>
+
+                        <div class="ios-toggle">
+                            <input asp-for="Activa" class="ios-toggle__input" />
+                            <label asp-for="Activa" class="ios-toggle__track">
+                                <span class="ios-toggle__thumb"></span>
+                            </label>
+                            <span class="ios-toggle__text">Cita activa</span>
+                        </div>
+                        <span asp-validation-for="Activa" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <hr class="my-4" />
+
+                <div class="d-flex flex-wrap gap-2 justify-content-end">
+                    <a asp-action="Index" class="btn btn-outline-secondary btn-pill">
+                        <i class="bi bi-x-circle me-2"></i> Cancelar
+                    </a>
+
+                    <button type="submit" class="btn btn-success btn-pill">
+                        <i class="bi bi-save me-2"></i> Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
