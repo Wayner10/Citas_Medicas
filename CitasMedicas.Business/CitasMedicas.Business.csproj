@@ -10,4 +10,9 @@
 
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CitasMedicas.DTO\CitasMedicas.DTO.csproj" />
+    <ProjectReference Include="..\CitasMedicas.Repositorio\CitasMedicas.Repositorio.csproj" />
+  </ItemGroup>
+
 </Project>
