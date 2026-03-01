@@ -1,14 +1,11 @@
 ﻿@model List<Sistema_de_Gestion_de_Citas_Medicas.ViewModels.EspecialidadCreateVM>
 
 @{
-    ViewData["Title"] = "Gestión de Especialidades";
+    ViewData["Title"] = "Listado de Especialidades";
 
     var total = Model?.Count ?? 0;
     var activas = Model?.Count(x => x.Activa) ?? 0;
     var inactivas = total - activas;
-
-    
-    var nuevasMes = 6;
 }
 
 @section Styles {
@@ -18,81 +15,53 @@
 <div class="container-fluid py-4 especialidades-page">
 
     
-    <div class="d-flex align-items-start justify-content-between flex-wrap gap-3 mb-3">
-        <div>
-            <h1 class="page-title mb-1">Gestión de Especialidades</h1>
-            <p class="page-subtitle mb-0">Administra y visualiza las especialidades médicas</p>
-        </div>
-
-        <a asp-action="Create" class="btn btn-dark btn-pill">
-            <i class="bi bi-plus-circle me-2"></i> Nueva Especialidad
-        </a>
+    <div class="mb-4">
+        <h1 class="page-title mb-1">Listado de Especialidades</h1>
+        <p class="page-subtitle mb-0">Visualización general de especialidades médicas</p>
     </div>
 
     
-    <div class="row g-3 mb-3">
-        <div class="col-12 col-md-6 col-xl-3">
+    <div class="row g-3 mb-4">
+        <div class="col-12 col-md-4">
             <div class="stat-card">
                 <div>
-                    <div class="stat-label">Total Especialidades</div>
+                    <div class="stat-label">Total</div>
                     <div class="stat-value">@total</div>
                 </div>
-                <div class="stat-icon soft-primary"><i class="bi bi-collection"></i></div>
+                <div class="stat-icon soft-primary">
+                    <i class="bi bi-collection"></i>
+                </div>
             </div>
         </div>
 
-        <div class="col-12 col-md-6 col-xl-3">
+        <div class="col-12 col-md-4">
             <div class="stat-card">
                 <div>
                     <div class="stat-label">Activas</div>
                     <div class="stat-value text-success">@activas</div>
                 </div>
-                <div class="stat-icon soft-success"><i class="bi bi-check2-circle"></i></div>
+                <div class="stat-icon soft-success">
+                    <i class="bi bi-check2-circle"></i>
+                </div>
             </div>
         </div>
 
-        <div class="col-12 col-md-6 col-xl-3">
+        <div class="col-12 col-md-4">
             <div class="stat-card">
                 <div>
                     <div class="stat-label">Inactivas</div>
                     <div class="stat-value text-danger">@inactivas</div>
                 </div>
-                <div class="stat-icon soft-warning"><i class="bi bi-x-circle"></i></div>
-            </div>
-        </div>
-
-        <div class="col-12 col-md-6 col-xl-3">
-            <div class="stat-card">
-                <div>
-                    <div class="stat-label">Nuevas (Mes)</div>
-                    <div class="stat-value text-purple">@nuevasMes</div>
+                <div class="stat-icon soft-warning">
+                    <i class="bi bi-x-circle"></i>
                 </div>
-                <div class="stat-icon soft-purple"><i class="bi bi-plus-circle"></i></div>
             </div>
         </div>
     </div>
 
-    
+   
     <div class="panel-card">
 
-       
-        <div class="panel-toolbar">
-            <div class="searchbox">
-                <i class="bi bi-search"></i>
-                <input class="form-control" placeholder="Buscar por nombre o descripción..." />
-            </div>
-
-            <div class="d-flex gap-2">
-                <button class="btn btn-outline-secondary btn-pill">
-                    <i class="bi bi-funnel me-2"></i> Filtros
-                </button>
-                <button class="btn btn-outline-secondary btn-pill">
-                    <i class="bi bi-download me-2"></i> Exportar
-                </button>
-            </div>
-        </div>
-
-        
         <div class="table-responsive">
             <table class="table table-modern mb-0">
                 <thead>
@@ -100,7 +69,6 @@
                         <th>Nombre</th>
                         <th>Descripción</th>
                         <th class="text-center">Estado</th>
-                        <th class="text-end">Acciones</th>
                     </tr>
                 </thead>
 
@@ -108,7 +76,7 @@
                     @if (Model == null || Model.Count == 0)
                     {
                         <tr>
-                            <td colspan="4" class="text-center py-4 text-muted">
+                            <td colspan="3" class="text-center py-4 text-muted">
                                 No hay especialidades registradas todavía.
                             </td>
                         </tr>
@@ -119,7 +87,11 @@
                         {
                             <tr>
                                 <td class="fw-semibold">@e.Nombre</td>
-                                <td class="text-truncate" style="max-width: 420px;">@e.Descripcion</td>
+
+                                <td class="text-truncate" style="max-width: 420px;">
+                                    @(string.IsNullOrWhiteSpace(e.Descripcion) ? "—" : e.Descripcion)
+                                </td>
+
                                 <td class="text-center">
                                     @if (e.Activa)
                                     {
@@ -130,17 +102,6 @@
                                         <span class="badge-pill badge-warning">Inactiva</span>
                                     }
                                 </td>
-                                <td class="text-end">
-                                    <a asp-action="Details" asp-route-id="@e.Id" class="icon-btn" title="Ver">
-                                        <i class="bi bi-eye"></i>
-                                    </a>
-                                    <a asp-action="Edit" asp-route-id="@e.Id" class="icon-btn warning" title="Editar">
-                                        <i class="bi bi-pencil"></i>
-                                    </a>
-                                    <a asp-action="Delete" asp-route-id="@e.Id" class="icon-btn danger" title="Eliminar">
-                                        <i class="bi bi-trash"></i>
-                                    </a>
-                                </td>
                             </tr>
                         }
                     }
@@ -148,14 +109,11 @@
             </table>
         </div>
 
-        
+   
         <div class="panel-footer">
-            <small class="text-muted">Mostrando @total de @total especialidades</small>
-
-            <div class="d-flex gap-2">
-                <button class="btn btn-outline-secondary btn-sm btn-pill" disabled>Anterior</button>
-                <button class="btn btn-outline-secondary btn-sm btn-pill">Siguiente</button>
-            </div>
+            <small class="text-muted">
+                Mostrando @total especialidades registradas
+            </small>
         </div>
     </div>
 </div>
