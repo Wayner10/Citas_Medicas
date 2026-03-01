@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using CitasMedicas.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace CitasMedicas.DataAccess.Models;
+namespace CitasMedicas.Entities;
 
 public partial class CitasMedicasContext : DbContext
 {
@@ -20,13 +19,15 @@ public partial class CitasMedicasContext : DbContext
 
     public virtual DbSet<Doctor> Doctors { get; set; }
 
-    public virtual DbSet<Especialidad> Especialidad { get; set; }
+    public virtual DbSet<Especialidad> Especialidads { get; set; }
 
     public virtual DbSet<Paciente> Pacientes { get; set; }
 
     public virtual DbSet<VwCitasDetalle> VwCitasDetalles { get; set; }
 
-
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("server=DESKTOP-36THQRG;database=CitasMedicas;Integrated Security=true;Encrypt=False");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

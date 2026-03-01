@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using CitasMedicas.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace CitasMedicas.DataAccess.Models;
+namespace Sistema_de_Gestion_de_Citas_Medicas.Models;
 
 public partial class CitasMedicasContext : DbContext
 {
@@ -20,13 +20,11 @@ public partial class CitasMedicasContext : DbContext
 
     public virtual DbSet<Doctor> Doctors { get; set; }
 
-    public virtual DbSet<Especialidad> Especialidad { get; set; }
+    public virtual DbSet<Especialidad> Especialidads { get; set; }
 
     public virtual DbSet<Paciente> Pacientes { get; set; }
 
     public virtual DbSet<VwCitasDetalle> VwCitasDetalles { get; set; }
-
-
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

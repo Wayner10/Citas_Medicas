@@ -12,7 +12,7 @@
     <Project Path="CitasMedicas.Utilities/CitasMedicas.Utilities.csproj" />
   </Folder>
   <Folder Name="/04.Capa de Servidor/">
-    <Project Path="Sistema de Gestion de Citas Medicas.Api/Sistema de Gestion de Citas Medicas.Api.csproj" />
+    <Project Path="../../../../../../source/repos/Citas_Medicas/Sistema de Gestion de Citas Medicas.Api/Sistema de Gestion de Citas Medicas.Api.csproj" />
   </Folder>
   <Folder Name="/05.Capa Cliente/">
     <Project Path="Sistema de Gestion de Citas Medicas.csproj" />

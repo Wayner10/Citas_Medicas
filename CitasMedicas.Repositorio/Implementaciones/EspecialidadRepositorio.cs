@@ -5,23 +5,21 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace CitasMedicas.Repositorio.Implementaciones
 {
-    public class DoctorRepositorio : IDoctorRepositorio
+    public class EspecialidadRepositorio : IEspecialidadRepositorio
     {
         private readonly CitasMedicas.DataAccess.Models.CitasMedicasContext _bd;
 
-        public DoctorRepositorio(CitasMedicas.DataAccess.Models.CitasMedicasContext bd) 
+        public EspecialidadRepositorio(CitasMedicas.DataAccess.Models.CitasMedicasContext bd)
         {
             _bd = bd;
         }
 
-        public async Task<List<Doctor>> Listar() 
+        public async Task<List<Especialidad>> Listar()
         {
-            return await _bd.Doctors.Where(p => p.Activo).ToListAsync();
+            return await _bd.Especialidad.Where(p => p.Activo).ToListAsync();
         }
-  
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CitasMedicas.DTO.Response.Doctor
 {
-    public class DoctorResoonse
+    public class DoctorResponse
     {
         public int DoctorId { get; set; }
 
