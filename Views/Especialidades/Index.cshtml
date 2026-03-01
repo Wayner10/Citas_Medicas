@@ -7,7 +7,7 @@
     var activas = Model?.Count(x => x.Activa) ?? 0;
     var inactivas = total - activas;
 
-    // mock: Nuevas (Mes)
+    
     var nuevasMes = 6;
 }
 
@@ -17,7 +17,7 @@
 
 <div class="container-fluid py-4 especialidades-page">
 
-    <!-- Header -->
+    
     <div class="d-flex align-items-start justify-content-between flex-wrap gap-3 mb-3">
         <div>
             <h1 class="page-title mb-1">Gestión de Especialidades</h1>
@@ -29,7 +29,7 @@
         </a>
     </div>
 
-    <!-- Stats -->
+    
     <div class="row g-3 mb-3">
         <div class="col-12 col-md-6 col-xl-3">
             <div class="stat-card">
@@ -72,10 +72,10 @@
         </div>
     </div>
 
-    <!-- Panel tabla -->
+    
     <div class="panel-card">
 
-        <!-- Toolbar -->
+       
         <div class="panel-toolbar">
             <div class="searchbox">
                 <i class="bi bi-search"></i>
@@ -92,7 +92,7 @@
             </div>
         </div>
 
-        <!-- Table -->
+        
         <div class="table-responsive">
             <table class="table table-modern mb-0">
                 <thead>
@@ -131,9 +131,15 @@
                                     }
                                 </td>
                                 <td class="text-end">
-                                    <a asp-action="Details" asp-route-id="@e.Id" class="icon-btn" title="Ver"><i class="bi bi-eye"></i></a>
-                                    <a asp-action="Edit" asp-route-id="@e.Id" class="icon-btn warning" title="Editar"><i class="bi bi-pencil"></i></a>
-                                    <button class="icon-btn danger" title="Eliminar" type="button"><i class="bi bi-trash"></i></button>
+                                    <a asp-action="Details" asp-route-id="@e.Id" class="icon-btn" title="Ver">
+                                        <i class="bi bi-eye"></i>
+                                    </a>
+                                    <a asp-action="Edit" asp-route-id="@e.Id" class="icon-btn warning" title="Editar">
+                                        <i class="bi bi-pencil"></i>
+                                    </a>
+                                    <a asp-action="Delete" asp-route-id="@e.Id" class="icon-btn danger" title="Eliminar">
+                                        <i class="bi bi-trash"></i>
+                                    </a>
                                 </td>
                             </tr>
                         }
@@ -142,7 +148,7 @@
             </table>
         </div>
 
-        <!-- Footer -->
+        
         <div class="panel-footer">
             <small class="text-muted">Mostrando @total de @total especialidades</small>
 

@@ -1,0 +1,123 @@
+﻿@model Sistema_de_Gestion_de_Citas_Medicas.ViewModels.PacienteCreateVM
+
+@{
+    ViewData["Title"] = "Eliminar Paciente";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/site.css" />
+    
+}
+
+<div class="container-fluid py-4">
+    <div class="d-flex align-items-start justify-content-between flex-wrap gap-3 mb-3">
+        <div>
+            <h1 class="page-title mb-1">Eliminar Paciente</h1>
+            <p class="page-subtitle mb-0">Confirma si deseas eliminar este paciente</p>
+        </div>
+
+        <a asp-action="Index" class="btn btn-outline-secondary btn-pill">
+            <i class="bi bi-arrow-left me-2"></i> Volver
+        </a>
+    </div>
+
+    <div class="panel-card">
+        <div class="panel-toolbar">
+            <div class="d-flex align-items-center gap-2">
+                <span class="stat-icon soft-warning" style="width:42px;height:42px;">
+                    <i class="bi bi-exclamation-triangle"></i>
+                </span>
+                <div>
+                    <div class="stat-label">Acción irreversible</div>
+                    <div class="stat-value" style="font-size: 1.05rem;">Vas a eliminar el paciente seleccionado</div>
+                </div>
+            </div>
+
+            @if (Model.Activo)
+            {
+                <span class="badge-pill badge-success">Activo</span>
+            }
+            else
+            {
+                <span class="badge-pill badge-warning">Inactivo</span>
+            }
+        </div>
+
+        <div class="p-3 p-md-4">
+            <div class="row g-3">
+                <div class="col-12 col-md-6">
+                    <div class="stat-card">
+                        <div>
+                            <div class="stat-label">Paciente</div>
+                            <div class="stat-value" style="font-size:1.1rem;">
+                                <i class="bi bi-person me-2 text-muted"></i>@Model.Nombre @Model.Apellido
+                            </div>
+                        </div>
+                        <div class="stat-icon soft-primary"><i class="bi bi-person"></i></div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <div class="stat-card">
+                        <div>
+                            <div class="stat-label">Cédula</div>
+                            <div class="stat-value" style="font-size:1.1rem;">
+                                <i class="bi bi-credit-card-2-front me-2 text-muted"></i>@Model.Cedula
+                            </div>
+                        </div>
+                        <div class="stat-icon soft-success"><i class="bi bi-credit-card-2-front"></i></div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <div class="stat-card">
+                        <div>
+                            <div class="stat-label">Teléfono</div>
+                            <div class="stat-value" style="font-size:1.1rem;">
+                                <i class="bi bi-telephone me-2 text-muted"></i>@Model.Telefono
+                            </div>
+                        </div>
+                        <div class="stat-icon soft-warning"><i class="bi bi-telephone"></i></div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <div class="stat-card">
+                        <div>
+                            <div class="stat-label">Fecha de nacimiento</div>
+                            <div class="stat-value" style="font-size:1.1rem;">
+                                <i class="bi bi-calendar3 me-2 text-muted"></i>@(Model.FechaNacimiento?.ToString("dd/MM/yyyy") ?? "—")
+                            </div>
+                        </div>
+                        <div class="stat-icon soft-purple"><i class="bi bi-calendar3"></i></div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="alert alert-warning mb-0" role="alert" style="border-radius: 14px;">
+                        <i class="bi bi-info-circle me-2"></i>
+                        Esta acción eliminará el paciente del sistema. Si deseas conservarlo, puedes cancelar.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-footer">
+            <small class="text-muted">Paciente #@Model.Id</small>
+
+            <div class="d-flex gap-2">
+                <a asp-action="Index" class="btn btn-outline-secondary btn-pill">
+                    <i class="bi bi-x-lg me-2"></i> Cancelar
+                </a>
+
+                <form asp-action="DeleteConfirmed" method="post" class="m-0">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@Model.Id" />
+                    <button type="submit" class="btn btn-dark btn-pill">
+                        <i class="bi bi-trash me-2"></i> Eliminar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

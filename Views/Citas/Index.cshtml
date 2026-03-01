@@ -7,7 +7,7 @@
     var activas = Model?.Count(x => x.Activa) ?? 0;
     var inactivas = total - activas;
 
-    // mock: "Hoy"
+    
     var hoy = DateTime.Today;
     var hoyCount = Model?.Count(x => x.Fecha.Date == hoy) ?? 0;
 }
@@ -18,7 +18,7 @@
 
 <div class="container-fluid py-4 citas-page">
 
-    <!-- Header -->
+    
     <div class="d-flex align-items-start justify-content-between flex-wrap gap-3 mb-3">
         <div>
             <h1 class="page-title mb-1">Gestión de Citas</h1>
@@ -30,7 +30,7 @@
         </a>
     </div>
 
-    <!-- Stats -->
+   
     <div class="row g-3 mb-3">
         <div class="col-12 col-md-6 col-xl-3">
             <div class="stat-card">
@@ -73,9 +73,9 @@
         </div>
     </div>
 
-    <!-- Panel tabla -->
+  
     <div class="panel-card">
-        <!-- Toolbar -->
+        
         <div class="panel-toolbar">
             <div class="searchbox">
                 <i class="bi bi-search"></i>
@@ -92,7 +92,7 @@
             </div>
         </div>
 
-        <!-- Table -->
+        
         <div class="table-responsive">
             <table class="table table-modern mb-0">
                 <thead>
@@ -122,7 +122,7 @@
                         foreach (var c in Model)
                         {
                             <tr>
-                                <!-- Por ahora mostramos IDs (hasta que conecten nombres desde API/BD) -->
+                                
                                 <td class="fw-semibold">
                                     <i class="bi bi-person me-2 text-muted"></i>Paciente #@c.PacienteId
                                 </td>
@@ -155,9 +155,9 @@
                                     <a asp-action="Edit" asp-route-id="@c.Id" class="icon-btn warning" title="Editar">
                                         <i class="bi bi-pencil"></i>
                                     </a>
-                                    <button class="icon-btn danger" title="Eliminar" type="button">
+                                    <a asp-action="Delete" asp-route-id="@c.Id" class="icon-btn danger" title="Eliminar">
                                         <i class="bi bi-trash"></i>
-                                    </button>
+                                    </a>
                                 </td>
                             </tr>
                         }
@@ -166,7 +166,7 @@
             </table>
         </div>
 
-        <!-- Footer -->
+        
         <div class="panel-footer">
             <small class="text-muted">Mostrando @total de @total citas</small>
 

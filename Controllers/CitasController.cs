@@ -9,7 +9,7 @@ namespace Sistema_de_Gestion_de_Citas_Medicas.Controllers
         // GET: /Citas
         public IActionResult Index()
         {
-            // Mock lista (hasta que conecten API/BD)
+
             var citas = new List<CitaCreateVM>
             {
                 new CitaCreateVM
@@ -59,12 +59,12 @@ namespace Sistema_de_Gestion_de_Citas_Medicas.Controllers
         {
             if (!ModelState.IsValid)
             {
-                // Importante: si falla validación, hay que recargar combos
+
                 vm = BuildMockCombos(vm);
                 return View(vm);
             }
 
-            // Mock: aún no guardamos en BD (esto lo conectará el equipo luego)
+
             return RedirectToAction(nameof(Index));
         }
 
@@ -98,7 +98,7 @@ namespace Sistema_de_Gestion_de_Citas_Medicas.Controllers
                 return View(vm);
             }
 
-            // Mock: aún no guardamos en BD
+
             return RedirectToAction(nameof(Index));
         }
 
@@ -121,7 +121,7 @@ namespace Sistema_de_Gestion_de_Citas_Medicas.Controllers
             return View(mock);
         }
 
-        // ===== Helpers (mock combos) =====
+
         private CitaCreateVM BuildMockCombos(CitaCreateVM vm)
         {
             vm.Pacientes = new List<SelectListItem>
@@ -148,5 +148,47 @@ namespace Sistema_de_Gestion_de_Citas_Medicas.Controllers
 
             return vm;
         }
+
+        // GET: /Citas/Delete/1
+        public IActionResult Delete(int id = 1)
+        {
+            var mock = new CitaCreateVM
+            {
+                Id = id,
+                PacienteId = 1,
+                DoctorId = 2,
+                EspecialidadId = 3,
+                Fecha = DateTime.Today.AddDays(2),
+                Hora = new TimeSpan(10, 30, 0),
+                Motivo = "Consulta general de control",
+                Activa = true,
+
+                // Opcional (por si la vista usa los combos)
+                Pacientes = new List<SelectListItem>
+        {
+            new SelectListItem { Value = "1", Text = "Juan Pérez" }
+        },
+
+                Doctores = new List<SelectListItem>
+        {
+            new SelectListItem { Value = "2", Text = "Dr. Carlos Ramírez" }
+        },
+
+                Especialidades = new List<SelectListItem>
+        {
+            new SelectListItem { Value = "3", Text = "Medicina General" }
+        }
+            };
+
+            return View(mock);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            // mock: luego será llamada a API/BD
+            return RedirectToAction(nameof(Index));
+        }
     }
-}
+} 

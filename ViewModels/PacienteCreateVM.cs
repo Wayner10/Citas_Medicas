@@ -4,6 +4,8 @@ namespace Sistema_de_Gestion_de_Citas_Medicas.ViewModels
 {
     public class PacienteCreateVM
     {
+        public int Id { get; set; }   
+
         [Required(ErrorMessage = "El nombre es obligatorio")]
         [StringLength(50)]
         public string? Nombre { get; set; }
@@ -24,7 +26,6 @@ namespace Sistema_de_Gestion_de_Citas_Medicas.ViewModels
         [DataType(DataType.Date)]
         public DateTime? FechaNacimiento { get; set; }
 
-        // Opcional para simular estado desde UI
         public bool Activo { get; set; } = true;
     }
 }

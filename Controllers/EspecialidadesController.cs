@@ -74,5 +74,28 @@ namespace Sistema_de_Gestion_de_Citas_Medicas.Controllers
 
             return View(mock);
         }
+
+        // GET: /Especialidades/Delete/1
+        public IActionResult Delete(int id = 1)
+        {
+            var mock = new EspecialidadCreateVM
+            {
+                Id = id,
+                Nombre = "Medicina General",
+                Descripcion = "Atención primaria, control general y seguimiento de pacientes.",
+                Activa = true
+            };
+
+            return View(mock);
+        }
+
+        // POST: /Especialidades/DeleteConfirmed/1
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            // mock: luego será API/BD (o desactivar Activa)
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

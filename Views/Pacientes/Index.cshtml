@@ -8,7 +8,7 @@
 
 <div class="container-fluid py-4 pacientes-page">
 
-    <!-- Header -->
+    
     <div class="d-flex align-items-start justify-content-between flex-wrap gap-3 mb-3">
         <div>
             <h1 class="page-title mb-1">Gestión de Pacientes</h1>
@@ -20,7 +20,7 @@
         </a>
     </div>
 
-    <!-- Stats -->
+    
     <div class="row g-3 mb-3">
         <div class="col-12 col-md-6 col-xl-3">
             <div class="stat-card">
@@ -60,9 +60,9 @@
         </div>
     </div>
 
-    <!-- Panel tabla -->
+    
     <div class="panel-card">
-        <!-- Toolbar -->
+        
         <div class="panel-toolbar">
             <div class="searchbox">
                 <i class="bi bi-search"></i>
@@ -79,7 +79,7 @@
             </div>
         </div>
 
-        <!-- Table -->
+        
         <div class="table-responsive">
             <table class="table table-modern mb-0">
                 <thead>
@@ -102,9 +102,15 @@
                             <span class="badge-pill badge-success">Activo</span>
                         </td>
                         <td class="text-end">
-                            <a asp-action="Details" class="icon-btn" title="Ver"><i class="bi bi-eye"></i></a>
-                            <a asp-action="Edit" class="icon-btn warning" title="Editar"><i class="bi bi-pencil"></i></a>
-                            <button class="icon-btn danger" title="Eliminar" type="button"><i class="bi bi-trash"></i></button>
+                            <a asp-action="Details" class="icon-btn" title="Ver">
+                                <i class="bi bi-eye"></i>
+                            </a>
+                            <a asp-action="Edit" class="icon-btn warning" title="Editar">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                            <a asp-action="Delete" class="icon-btn danger" title="Eliminar">
+                                <i class="bi bi-trash"></i>
+                            </a>
                         </td>
                     </tr>
 
@@ -119,7 +125,9 @@
                         <td class="text-end">
                             <a asp-action="Details" class="icon-btn" title="Ver"><i class="bi bi-eye"></i></a>
                             <a asp-action="Edit" class="icon-btn warning" title="Editar"><i class="bi bi-pencil"></i></a>
-                            <button class="icon-btn danger" title="Eliminar" type="button"><i class="bi bi-trash"></i></button>
+                            <a asp-action="Delete" class="icon-btn danger" title="Eliminar">
+                                <i class="bi bi-trash"></i>
+                            </a>
                         </td>
                     </tr>
 
@@ -134,7 +142,9 @@
                         <td class="text-end">
                             <a asp-action="Details" class="icon-btn" title="Ver"><i class="bi bi-eye"></i></a>
                             <a asp-action="Edit" class="icon-btn warning" title="Editar"><i class="bi bi-pencil"></i></a>
-                            <button class="icon-btn danger" title="Eliminar" type="button"><i class="bi bi-trash"></i></button>
+                            <a asp-action="Delete" class="icon-btn danger" title="Eliminar">
+                                <i class="bi bi-trash"></i>
+                            </a>
                         </td>
                     </tr>
 
@@ -149,14 +159,16 @@
                         <td class="text-end">
                             <a asp-action="Details" class="icon-btn" title="Ver"><i class="bi bi-eye"></i></a>
                             <a asp-action="Edit" class="icon-btn warning" title="Editar"><i class="bi bi-pencil"></i></a>
-                            <button class="icon-btn danger" title="Eliminar" type="button"><i class="bi bi-trash"></i></button>
+                            <a asp-action="Delete" class="icon-btn danger" title="Eliminar">
+                                <i class="bi bi-trash"></i>
+                            </a>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <!-- Footer -->
+       
         <div class="panel-footer">
             <small class="text-muted">Mostrando 4 de 4 pacientes</small>
 

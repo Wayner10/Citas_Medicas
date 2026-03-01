@@ -57,5 +57,32 @@ namespace Sistema_de_Gestion_de_Citas_Medicas.Controllers
             var doctor = MockDoctores().FirstOrDefault(x => x.DoctorId == id) ?? MockDoctores().First();
             return View(doctor);
         }
+
+        // GET: /Doctor/Delete/1   (o /Doctors/Delete/1 según tu controller)
+        public IActionResult Delete(int id = 1)
+        {
+            var mock = new DoctorCreateVM
+            {
+                DoctorId = id,
+                Nombre = "Carlos",
+                Apellido = "Ramírez",
+                CodigoMed = "MED-1029",
+                Telefono = "8888-8888",
+                Correo = "carlos.ramirez@clinicacr.com",
+                Especialidad = "Medicina General",
+                Consultorio = "C-12",
+                Activo = true
+            };
+
+            return View(mock);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

@@ -69,5 +69,31 @@ namespace Sistema_de_Gestion_de_Citas_Medicas.Controllers
 
             return View(mock);
         }
+
+        // GET: /Pacientes/Delete/1
+        public IActionResult Delete(int id = 1)
+        {
+            var mock = new PacienteCreateVM
+            {
+                Id = id,
+                Nombre = "Juan",
+                Apellido = "Pérez",
+                Cedula = "1-2345-6789",
+                Telefono = "8888-8888",
+                FechaNacimiento = new DateTime(1995, 5, 10),
+                Activo = true
+            };
+
+            return View(mock);
+        }
+
+        // POST: /Pacientes/DeleteConfirmed
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
